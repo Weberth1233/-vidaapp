@@ -21,7 +21,10 @@ class GlobalScaffoldWidget extends StatelessWidget {
         ),
         centerTitle: true,
       ),
-      body: body,
+      body: Container(
+          color: theme.colorScheme.onSecondary,
+          padding: const EdgeInsets.symmetric(horizontal: 15),
+          child: body),
     );
   }
 }

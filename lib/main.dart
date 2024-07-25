@@ -5,6 +5,8 @@ import 'package:vidaapp/app/type_blood_module/03_application/pages/type_blood_ed
 import 'package:vidaapp/app/type_blood_module/03_application/pages/type_blood_registration_page.dart';
 import 'package:vidaapp/core/theme/theme.dart';
 
+import 'app/post_module/03_application/pages/post_donation_page.dart';
+
 Future<void> main() async {
   await dotenv.load(fileName: '.env');
   String apiKey = dotenv.env['API_KEY'] ?? '';
@@ -27,7 +29,7 @@ class MyApp extends StatelessWidget {
       themeMode: ThemeMode.light,
       title: '+Vida APP',
       theme: AppTheme.lightTheme,
-      home: const TypeBloodEditPage(),
+      home: const PostDonationPage(),
     );
   }
 }
