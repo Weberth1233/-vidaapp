@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:vidaapp/core/widgets/forms/button_widget.dart';
+import 'package:vidaapp/core/widgets/forms_widgets/button_widget.dart';
 import 'package:vidaapp/core/widgets/global_scaffold_widget.dart';
 
-import 'forms/text_input_widget.dart';
+import 'forms_widgets/text_input_widget.dart';
 
 class BaseScreenWidget extends StatelessWidget {
   final String appBarTitle;
   final String title;
   final String subTitle;
   final List<TextInputWidget> textInputWidgetList;
+  final String textButton;
+  final void Function()? onPressed;
 
   const BaseScreenWidget({
     super.key,
@@ -17,13 +18,17 @@ class BaseScreenWidget extends StatelessWidget {
     required this.title,
     required this.subTitle,
     required this.textInputWidgetList,
+    required this.textButton,
+    this.onPressed,
   });
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return GlobalScaffoldWidget(
       appBarTitle: appBarTitle,
       body: Container(
+        color: theme.colorScheme.background,
         padding: const EdgeInsets.symmetric(
           horizontal: 25,
           vertical: 35,
@@ -33,18 +38,13 @@ class BaseScreenWidget extends StatelessWidget {
           children: <Widget>[
             Text(
               title,
-              style: const TextStyle(
-                  fontSize: 28,
-                  fontWeight: FontWeight.w500,
-                  color: Color(0xFFDB3541)),
+              style: theme.textTheme.headlineMedium!
+                  .copyWith(color: theme.colorScheme.primary),
             ),
             Text(
               subTitle,
-              style: const TextStyle(
-                fontSize: 12,
-                fontWeight: FontWeight.w500,
-                color: Colors.grey,
-              ),
+              style: theme.textTheme.bodySmall!
+                  .copyWith(color: theme.colorScheme.outline),
             ),
             const SizedBox(
               height: 62,
@@ -60,7 +60,10 @@ class BaseScreenWidget extends StatelessWidget {
                       },
                     ),
                   ),
-                  const ButtonWidget(),
+                  ButtonWidget(
+                    textButton: textButton,
+                    onPressed: onPressed,
+                  ),
                 ],
               ),
             )

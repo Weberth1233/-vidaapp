@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
-import 'package:vidaapp/app/type_blood/03_application/pages/type_blood_page.dart';
+import 'package:vidaapp/app/type_blood_module/03_application/pages/type_blood_edit_page.dart';
+import 'package:vidaapp/app/type_blood_module/03_application/pages/type_blood_registration_page.dart';
+import 'package:vidaapp/core/theme/theme.dart';
 
 Future<void> main() async {
   await dotenv.load(fileName: '.env');
@@ -22,12 +24,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'Flutter Demo',
-        theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-          useMaterial3: true,
-        ),
-        home: const TypeBloodPage());
+      themeMode: ThemeMode.light,
+      title: '+Vida APP',
+      theme: AppTheme.lightTheme,
+      home: const TypeBloodEditPage(),
+    );
   }
 }
 

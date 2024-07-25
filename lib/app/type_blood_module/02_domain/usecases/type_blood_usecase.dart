@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
-import 'package:vidaapp/app/type_blood/02_domain/entities/type_blood_entity.dart';
-import 'package:vidaapp/app/type_blood/02_domain/failures/failures.dart';
-import 'package:vidaapp/app/type_blood/02_domain/repositories/type_blood_repository.dart';
+import 'package:vidaapp/app/type_blood_module/02_domain/entities/type_blood_entity.dart';
+import 'package:vidaapp/app/core_module/failures/failures.dart';
+import 'package:vidaapp/app/type_blood_module/02_domain/repositories/type_blood_repository.dart';
 import 'package:vidaapp/core/use_case.dart';
 
 class TypeBloodUsecase implements UseCase<List<TypeBloodEntity>, NoParams> {

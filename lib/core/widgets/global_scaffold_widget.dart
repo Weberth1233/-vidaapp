@@ -11,11 +11,13 @@ class GlobalScaffoldWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return Scaffold(
       appBar: AppBar(
         title: Text(
           appBarTitle,
-          style: const TextStyle(fontWeight: FontWeight.w700, fontSize: 15),
+          style:
+              theme.textTheme.bodyMedium!.copyWith(fontWeight: FontWeight.bold),
         ),
         centerTitle: true,
       ),
