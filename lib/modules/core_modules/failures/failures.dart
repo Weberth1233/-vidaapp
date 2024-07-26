@@ -1,17 +1,7 @@
-import 'package:equatable/equatable.dart';
-
 abstract class Failure {}
 
-class ServerFailure extends Failure implements EquatableMixin {
-  final String? stackTrace;
+class ServerFailure extends Failure {}
 
-  ServerFailure({required this.stackTrace});
+class CacheFailure extends Failure {}
 
-  @override
-  // TODO: implement props
-  List<Object?> get props => [stackTrace];
-
-  @override
-  // TODO: implement stringify
-  bool? get stringify => throw UnimplementedError();
-}
+class GeneralFailure extends Failure {}

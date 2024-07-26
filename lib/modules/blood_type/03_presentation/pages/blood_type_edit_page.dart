@@ -3,8 +3,8 @@ import 'package:vidaapp/modules/core_modules/designer_system/base_screen_widget.
 
 import '../../../core_modules/designer_system/forms_widgets/text_input_widget.dart';
 
-class TypeBloodRegistrationPage extends StatelessWidget {
-  const TypeBloodRegistrationPage({super.key});
+class BloodTypeEditPage extends StatelessWidget {
+  const BloodTypeEditPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -13,16 +13,16 @@ class TypeBloodRegistrationPage extends StatelessWidget {
     List<TextInputWidget> textInputWidgetList = [
       TextInputWidget(
         controller: nameTypeBlood,
-        hintTextFormField: "Nome do tipo sanguíneo",
+        hintTextFormField: "A+",
       ),
     ];
 
     return BaseScreenWidget(
       appBarTitle: 'Tipo Sangue',
-      title: "Cadastro de Tipo Sanguíneo",
-      subTitle: "Cadastre todos os tipos sanguineos",
+      title: "Editar Tipo Sanguíneo",
+      subTitle: "O seguinte dado pode ser alterado...",
       textInputWidgetList: textInputWidgetList,
-      textButton: 'Cadastro',
+      textButton: 'Atualizar',
       onPressed: () {},
     );
   }

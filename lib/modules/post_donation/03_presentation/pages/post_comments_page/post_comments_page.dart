@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../../../core_modules/widgets/global_scaffold_widget.dart';
+import '../../../../core_modules/designer_system/global_scaffold_widget.dart';
 import 'comment_area/comment_area.dart';
 import 'comment_area/widgets/comment_textfield_area.dart';
 
