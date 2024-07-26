@@ -13,7 +13,7 @@ class AppTheme {
   static const Color _lightSecondaryVariantColor = Color(0XFFFF636F);
   static const Color _lightTertiaryVariantColor = Color(0XFFB5101C);
 
-  static final Color _lightOnPrimaryColor = Colors.blueGrey.shade200;
+  // static final Color _lightOnPrimaryColor = Colors.blueGrey.shade200;
 
   static const Color _lightTextColorVariantWhite = Color(0XFFFFFFFF);
   static const Color _lightTextColorVariantGrey = Color(0XFF7A7676);
@@ -101,7 +101,7 @@ class AppTheme {
   // *****************
 
   static final ThemeData lightTheme = ThemeData(
-      scaffoldBackgroundColor: _lightPrimaryColor,
+      scaffoldBackgroundColor: _lightPrimaryBackgroundColor,
       inputDecorationTheme: InputDecorationTheme(
         hintStyle: _lightTextTheme.bodySmall!.copyWith(
           color: _lightTextColorVariantGrey,

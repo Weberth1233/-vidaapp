@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:vidaapp/modules/core_modules/theme/theme.dart';
-import 'package:vidaapp/modules/type_blood/03_presentation/pages/type_blood_edit_page.dart';
-import 'modules/post_donation/03_presentation/pages/post_donation_page.dart';
+import 'package:vidaapp/modules/post_donation/03_presentation/pages/post_donation_page/post_donation_page.dart';
+import 'modules/post_donation/03_presentation/pages/post_comments_page/post_comments_page.dart';
 
 Future<void> main() async {
   // await dotenv.load(fileName: '.env');
@@ -27,7 +25,8 @@ class MyApp extends StatelessWidget {
       themeMode: ThemeMode.light,
       title: '+Vida APP',
       theme: AppTheme.lightTheme,
-      home: const TypeBloodEditPage(),
+      debugShowCheckedModeBanner: false,
+      home: const PostCommentsPage(),
     );
   }
 }
