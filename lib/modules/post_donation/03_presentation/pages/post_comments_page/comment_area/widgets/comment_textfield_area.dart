@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../../../core_modules/widgets/forms_widgets/text_input_widget.dart';
+import '../../../../../../core_modules/designer_system/forms_widgets/text_input_widget.dart';
 
 class CommentTextFieldArea extends StatelessWidget {
   final TextEditingController controller;

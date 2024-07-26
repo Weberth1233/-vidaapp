@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:vidaapp/modules/core_modules/theme/theme.dart';
 import 'package:vidaapp/modules/post_donation/03_presentation/pages/post_donation_page/post_donation_page.dart';
-import 'modules/post_donation/03_presentation/pages/post_comments_page/post_comments_page.dart';
 
 Future<void> main() async {
   // await dotenv.load(fileName: '.env');
@@ -26,7 +25,7 @@ class MyApp extends StatelessWidget {
       title: '+Vida APP',
       theme: AppTheme.lightTheme,
       debugShowCheckedModeBanner: false,
-      home: const PostCommentsPage(),
+      home: const PostDonationPage(),
     );
   }
 }

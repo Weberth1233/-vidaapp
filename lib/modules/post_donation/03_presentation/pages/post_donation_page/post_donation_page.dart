@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:vidaapp/modules/post_donation/03_presentation/pages/post_donation_page/card/card_post.dart';
-import 'package:vidaapp/modules/core_modules/widgets/global_scaffold_widget.dart';
+import 'package:vidaapp/modules/core_modules/designer_system/global_scaffold_widget.dart';
 
 class PostDonationPage extends StatelessWidget {
   const PostDonationPage({super.key});
