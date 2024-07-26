@@ -12,7 +12,7 @@ class TypeBloodUsecase implements UseCase<List<TypeBloodEntity>, NoParams> {
   @override
   Future<Either<Failure, List<TypeBloodEntity>>> call(NoParams params) async {
     try {
-      final result = await typeBloodRepository.fetchAllTypeBlood();
+      final result = await typeBloodRepository.getAll();
       return result.fold(
         (failure) => Left(failure),
         (typeBloods) => Right(typeBloods),

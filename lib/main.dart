@@ -2,18 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:vidaapp/modules/core_modules/theme/theme.dart';
+import 'package:vidaapp/modules/type_blood/03_presentation/pages/type_blood_edit_page.dart';
 import 'modules/post_donation/03_presentation/pages/post_donation_page.dart';
 
 Future<void> main() async {
-  await dotenv.load(fileName: '.env');
-  String apiKey = dotenv.env['API_KEY'] ?? '';
-  String apiUrl = dotenv.env['API_URL'] ?? '';
+  // await dotenv.load(fileName: '.env');
+  // String apiKey = dotenv.env['API_KEY'] ?? '';
+  // String apiUrl = dotenv.env['API_URL'] ?? '';
 
-  WidgetsFlutterBinding.ensureInitialized();
-  await Supabase.initialize(
-    url: apiUrl,
-    anonKey: apiKey,
-  );
+  // WidgetsFlutterBinding.ensureInitialized();
+  // await Supabase.initialize(
+  //   url: apiUrl,
+  //   anonKey: apiKey,
+  // );
   runApp(const MyApp());
 }
 
@@ -26,7 +27,7 @@ class MyApp extends StatelessWidget {
       themeMode: ThemeMode.light,
       title: '+Vida APP',
       theme: AppTheme.lightTheme,
-      home: const PostDonationPage(),
+      home: const TypeBloodEditPage(),
     );
   }
 }

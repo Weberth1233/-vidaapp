@@ -1,7 +1,4 @@
-import 'package:dartz/dartz.dart';
+import 'package:vidaapp/modules/core_modules/repositories/reposity.dart';
 import '../entities/type_blood_entity.dart';
-import '../../../core_modules/failures/failures.dart';
 
-abstract class TypeBloodRepository {
-  Future<Either<Failure, List<TypeBloodEntity>>> fetchAllTypeBlood();
-}
+class TypeBloodRepository extends Reposity<TypeBloodEntity> {}
