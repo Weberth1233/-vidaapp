@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../core_modules/designer_system/profile_photo_widget.dart';
+import '../../../../00_core_modules/designer_system/profile_photo_widget.dart';
 
 class CardHeader extends StatelessWidget {
   final ImageProvider<Object> image;

@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
-import 'package:vidaapp/modules/core_modules/failures/failures.dart';
-import 'package:vidaapp/modules/core_modules/repositories/irepository.dart';
+import 'package:vidaapp/modules/00_core_modules/failures/failures.dart';
+import 'package:vidaapp/modules/00_core_modules/repositories/irepository.dart';
 
 class Reposity<T> implements IRepository<T> {
   

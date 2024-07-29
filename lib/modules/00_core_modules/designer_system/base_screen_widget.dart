@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:vidaapp/modules/core_modules/designer_system/forms_widgets/button_widget.dart';
-import 'package:vidaapp/modules/core_modules/designer_system/global_scaffold_widget.dart';
+import 'package:vidaapp/modules/00_core_modules/designer_system/forms_widgets/button_widget.dart';
+import 'package:vidaapp/modules/00_core_modules/designer_system/global_scaffold_widget.dart';
 
 import 'forms_widgets/text_input_widget.dart';
 

@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
-import 'package:vidaapp/modules/core_modules/theme/theme.dart';
-import 'package:vidaapp/modules/post_donation/03_presentation/pages/post_donation_page/post_donation_page.dart';
+import 'package:vidaapp/app_module.dart';
+import 'package:vidaapp/modules/00_core_modules/theme/theme.dart';
 
 Future<void> main() async {
   await dotenv.load(fileName: '.env');
@@ -14,20 +15,39 @@ Future<void> main() async {
     url: apiUrl,
     anonKey: apiKey,
   );
-  runApp(const MyApp());
+  runApp(ModularApp(module: AppModule(), child: const MyApp()));
 }
+
+// class MyApp extends StatelessWidget {
+//   const MyApp({super.key});
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       themeMode: ThemeMode.light,
+//       title: '+Vida APP',
+//       theme: AppTheme.lightTheme,
+//       debugShowCheckedModeBanner: false,
+//       // home: const PostDonationPage(),
+//       home: MyHomePage(
+//         title: 'ddkjuk',
+//       ),
+//     );
+//   }
+// }
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       themeMode: ThemeMode.light,
       title: '+Vida APP',
       theme: AppTheme.lightTheme,
       debugShowCheckedModeBanner: false,
-      home: const PostDonationPage(),
+      // home: const PostDonationPage(),
+      routerConfig: Modular.routerConfig,
     );
   }
 }
@@ -51,7 +71,7 @@ class MyApp extends StatelessWidget {
 //   }
 
 //   Future<List<dynamic>> fetchUsers() async {
-//     final response = await Supabase.instance.client.from('users').select();
+//     final response = await Supabase.instance.client.from('type_blood').select();
 //     return response as List<dynamic>;
 //   }
 

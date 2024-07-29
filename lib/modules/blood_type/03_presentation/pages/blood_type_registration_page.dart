@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:vidaapp/modules/core_modules/designer_system/base_screen_widget.dart';
+import 'package:vidaapp/modules/00_core_modules/designer_system/base_screen_widget.dart';
 
-import '../../../core_modules/designer_system/forms_widgets/text_input_widget.dart';
+import '../../../00_core_modules/designer_system/forms_widgets/text_input_widget.dart';
 
 class BloodTypeRegistrationPage extends StatelessWidget {
   const BloodTypeRegistrationPage({super.key});

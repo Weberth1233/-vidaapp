@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
-import 'package:vidaapp/modules/core_modules/failures/failures.dart';
+import 'package:vidaapp/modules/00_core_modules/failures/failures.dart';
 
 abstract class UseCase<Type, Params> {
   Future<Either<Failure, Type>> call(Params params);
