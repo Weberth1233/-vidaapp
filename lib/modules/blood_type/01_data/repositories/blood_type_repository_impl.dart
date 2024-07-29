@@ -9,7 +9,7 @@ import '../../02_domain/repositories/blood_type_repository.dart';
 import '../models/blood_type_model.dart';
 
 //Uso a interface criada no dominio aqui na camada de data
-class BloodTypeRepositoryImpl extends BloodTypeRepository {
+class BloodTypeRepositoryImpl extends BloodTypeRepository<BloodTypeModel> {
   final BloodTypeDatasources bloodTypeDatasources;
 
   BloodTypeRepositoryImpl({required this.bloodTypeDatasources});

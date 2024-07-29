@@ -2,7 +2,7 @@ import 'package:dartz/dartz.dart';
 import 'package:vidaapp/modules/00_core_modules/failures/failures.dart';
 import 'package:vidaapp/modules/00_core_modules/repositories/irepository.dart';
 
-class Reposity<T> implements IRepository<T> {
+class Reposity<T, R> implements IRepository<T> {
   @override
   Future<Either<Failure, bool>> add(T entity) {
     // TODO: implement add
