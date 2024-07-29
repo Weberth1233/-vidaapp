@@ -1,8 +1,8 @@
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
-import 'package:vidaapp/modules/00_core_modules/supabase_config.dart';
-import 'package:vidaapp/modules/00_core_modules/use_case.dart';
+import 'package:vidaapp/modules/00_core_modules/infra/core_module.dart';
 import 'package:vidaapp/modules/blood_type/01_data/datasources/blood_type_datasources.dart';
+import 'package:vidaapp/modules/blood_type/01_data/models/blood_type_model.dart';
 import 'package:vidaapp/modules/blood_type/01_data/repositories/blood_type_repository_impl.dart';
 import 'package:vidaapp/modules/blood_type/02_domain/repositories/blood_type_repository.dart';
 import 'package:vidaapp/modules/blood_type/02_domain/usecases/blood_type_usecase.dart';
@@ -12,10 +12,9 @@ import 'package:vidaapp/modules/blood_type/03_presentation/pages/blood_type_list
 class AppModule extends Module {
   @override
   void binds(Injector i) {
-    //Injetando o supabaseconfig para inicia-ló ao chamar esse modulo
-    i.addSingleton<SupabaseClient>(createSupabaseClient);
-
     //Injetando datasources com o supabase - SupabaseClient
+
+//Injetando datasources com o supabase - SupabaseClient
     i.addSingleton<BloodTypeDatasources>(
       () => BloodTypeDatasourcesImpl(
         client: i.get<SupabaseClient>(),
@@ -41,6 +40,9 @@ class AppModule extends Module {
     );
   }
 
+  @override
+  // TODO: implement imports
+  List<Module> get imports => [CoreModule<BloodTypeModel>()];
   @override
   void routes(RouteManager r) {
     r.child(

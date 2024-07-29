@@ -1,8 +1,10 @@
 import 'dart:convert';
 
+import 'package:vidaapp/modules/00_core_modules/infra/base_model.dart';
 import 'package:vidaapp/modules/blood_type/02_domain/entities/blood_type_entity.dart';
 
-class BloodTypeModel extends BloodTypeEntity {
+class BloodTypeModel extends BloodTypeEntity
+    implements BaseModel<BloodTypeModel> {
   BloodTypeModel({
     required super.id,
     required super.createdAt,

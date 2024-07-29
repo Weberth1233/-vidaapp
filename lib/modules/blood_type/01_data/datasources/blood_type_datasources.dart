@@ -1,31 +1,18 @@
-import 'dart:convert';
-
-import 'package:dartz/dartz.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:supabase_flutter/supabase_flutter.dart';
+import 'package:vidaapp/modules/00_core_modules/infra/data_sources_clone.dart';
 import 'package:vidaapp/modules/blood_type/01_data/models/blood_type_model.dart';
 
-import '../../02_domain/entities/blood_type_entity.dart';
-
-abstract class BloodTypeDatasources {
-  Future<List<BloodTypeEntity>> getAllTypeBlood();
+abstract class BloodTypeDatasources extends DataSourcesImpl<BloodTypeModel> {
+  BloodTypeDatasources({required super.client});
+  //Caso seja necessário adicionar novas metodos além dos presentes no DatSourcesImpl
 }
 
 class BloodTypeDatasourcesImpl extends BloodTypeDatasources {
-  final SupabaseClient client;
-
-  BloodTypeDatasourcesImpl({required this.client});
+  BloodTypeDatasourcesImpl({required super.client});
 
   @override
-  Future<List<BloodTypeEntity>> getAllTypeBlood() async {
-    //Implementar toda a logica necessária
-    try {
-      final response =
-          await client.from('type_blood').select() as List<dynamic>;
-      return response.map((json) => BloodTypeModel.fromMap(json)).toList();
-    } catch (e) {
-      debugPrint(e.toString());
-      throw Exception('Failed to fetch bloodTypes $e');
-    }
+  Future<List<BloodTypeModel>> get(
+      String path, BloodTypeModel Function(Map<String, dynamic> map) fromMap) {
+    // TODO: implement get
+    return super.get(path, fromMap);
   }
 }
