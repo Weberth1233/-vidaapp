@@ -1,4 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:vidaapp/modules/00_core_modules/utils/table_name.dart';
+import 'package:vidaapp/modules/blood_type/01_data/models/blood_type_model.dart';
 import 'package:vidaapp/modules/blood_type/03_presentation/bloc/blood_type_event.dart';
 import 'package:vidaapp/modules/blood_type/03_presentation/bloc/blood_type_state.dart';
 import 'package:vidaapp/modules/00_core_modules/use_case.dart';
@@ -19,7 +21,10 @@ class BloodTypeBloc extends Bloc<BloodTypeEvent, BloodTypeState> {
   Future<void> _onBloodTypeFetched(
       LoadBloodTypeEvent event, Emitter<BloodTypeState> emit) async {
     emit(BloodTypeLoadingState());
-    final result = await usecase.call(NoParams());
+    final result = await usecase.call(
+      GetAllParams<BloodTypeModel>(
+          table: TableName.bloodTypeTable, fromMap: BloodTypeModel.fromMap),
+    );
     result.fold(
       (failure) =>
           emit(BloodTypeErrorState(message: 'Erro ao buscar os dados!')),

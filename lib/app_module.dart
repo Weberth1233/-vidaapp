@@ -13,15 +13,16 @@ class AppModule extends Module {
   @override
   void binds(Injector i) {
     //Injetando datasources com o supabase - SupabaseClient
+    //Injetando o supabaseconfig para inicia-ló ao chamar esse modulo
 
-//Injetando datasources com o supabase - SupabaseClient
+    //Injetando datasources com o supabase - SupabaseClient
     i.addSingleton<BloodTypeDatasources>(
       () => BloodTypeDatasourcesImpl(
         client: i.get<SupabaseClient>(),
       ),
     );
     //Injetando repository com o datasources - BloodTypeDatasources
-    i.addSingleton<BloodTypeRepository>(
+    i.addSingleton<BloodTypeRepository<BloodTypeModel>>(
       () => BloodTypeRepositoryImpl(
         bloodTypeDatasources: i.get<BloodTypeDatasources>(),
       ),
@@ -29,7 +30,7 @@ class AppModule extends Module {
     //Injetando usecase com o repository - BloodTypeRepository
     i.addSingleton<BloodTypeUsecase>(
       () => BloodTypeUsecase(
-        bloodTypeRepository: i.get<BloodTypeRepository>(),
+        bloodTypeRepository: i.get<BloodTypeRepository<BloodTypeModel>>(),
       ),
     );
     //Injetando bloc com o usecase - BloodTypeUsecase
@@ -42,7 +43,7 @@ class AppModule extends Module {
 
   @override
   // TODO: implement imports
-  List<Module> get imports => [CoreModule<BloodTypeModel>()];
+  List<Module> get imports => [CoreModule()];
   @override
   void routes(RouteManager r) {
     r.child(

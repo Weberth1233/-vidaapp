@@ -12,18 +12,33 @@ import '../models/blood_type_model.dart';
 class BloodTypeRepositoryImpl extends BloodTypeRepository<BloodTypeModel> {
   final BloodTypeDatasources bloodTypeDatasources;
 
-  BloodTypeRepositoryImpl({required this.bloodTypeDatasources});
+  BloodTypeRepositoryImpl({required this.bloodTypeDatasources})
+      : super(dataSourcesImpl: bloodTypeDatasources);
 
   @override
-  Future<Either<Failure, List<BloodTypeEntity>>> getAll() async {
-    try {
-      final result =
-          await bloodTypeDatasources.get('type_blood', BloodTypeModel.fromMap);
-      return right(result);
-    } on ServerFailure catch (_) {
-      return left(ServerFailure());
-    } catch (e) {
-      return left(GeneralFailure());
-    }
+  Future<Either<Failure, List<BloodTypeEntity>>> getAll(
+      String path, BloodTypeModel Function(Map<String, dynamic> map) fromMap) {
+    // TODO: implement getAll
+    return super.getAll(path, fromMap);
   }
+
+  // @override
+  // void imprimir() {
+  //   // TODO: implement imprimir
+  //   print('escrever');
+  //   bloodTypeDatasources.imprimir();
+  // }
+
+  // @override
+  // Future<Either<Failure, List<BloodTypeEntity>>> getAll() async {
+  //   try {
+  //     final result =
+  //         await bloodTypeDatasources.get('type_blood', BloodTypeModel.fromMap);
+  //     return right(result);
+  //   } on ServerFailure catch (_) {
+  //     return left(ServerFailure());
+  //   } catch (e) {
+  //     return left(GeneralFailure());
+  //   }
+  // }
 }

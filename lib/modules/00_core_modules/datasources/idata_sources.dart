@@ -1,13 +1,13 @@
-abstract class IDatasource<R>
+abstract class IDatasource<T>
     implements
-        IGetDatasource<R>,
+        IGetDatasource<T>,
         IAddDatasource,
         IDeleteDatasource,
         IUpdateDatasource {}
 
-abstract class IGetDatasource<R> {
-  Future<List<R>> get(
-      String path, R Function(Map<String, dynamic> map) fromMap);
+abstract class IGetDatasource<T> {
+  Future<List<T>> get(
+      String path, T Function(Map<String, dynamic> map) fromMap);
 }
 
 abstract class IAddDatasource {

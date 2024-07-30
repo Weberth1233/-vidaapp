@@ -1,1 +1,1 @@
-abstract class BaseModel<T> {}
+abstract class BaseModel {}
