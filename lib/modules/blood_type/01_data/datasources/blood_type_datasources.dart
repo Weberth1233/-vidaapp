@@ -10,22 +10,4 @@ abstract class BloodTypeDatasources extends DataSourcesImpl<BloodTypeModel> {
 
 class BloodTypeDatasourcesImpl extends BloodTypeDatasources {
   BloodTypeDatasourcesImpl({required super.client});
-
-  @override
-  Future<List<BloodTypeModel>> get(
-      String path, BloodTypeModel Function(Map<String, dynamic> map) fromMap) {
-    // TODO: implement get
-    return super.get(path, fromMap);
-  }
-
-  @override
-  Future<bool> delete(String path, int id) {
-    // TODO: implement delete
-    return super.delete(path, id);
-  }
-
-  // @override
-  // void imprimir() {
-  //   // TODO: implement imprimir
-  // }
 }

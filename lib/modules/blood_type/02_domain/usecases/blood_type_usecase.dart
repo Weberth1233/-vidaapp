@@ -15,11 +15,4 @@ class BloodTypeUsecase
       : super(
           reposity: bloodTypeRepository,
         );
-
-  @override
-  Future<Either<Failure, List<BloodTypeEntity>>> call(
-      GetAllParams<BloodTypeModel> params) {
-    // TODO: implement call
-    return super.call(params);
-  }
 }
