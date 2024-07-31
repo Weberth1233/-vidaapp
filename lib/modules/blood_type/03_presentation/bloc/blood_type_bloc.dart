@@ -29,12 +29,14 @@ class BloodTypeBloc extends Bloc<BloodTypeEvent, BloodTypeState> {
           table: TableName.bloodTypeTable, fromMap: BloodTypeModel.fromMap),
     );
     result.fold(
-      (failure) =>
-          emit(BloodTypeErrorState(message: 'Erro ao buscar os dados!')),
-      (sucess) => emit(
-        BloodTypeLoadedState(bloodTypeList: sucess),
-      ),
-    );
+        (failure) =>
+            emit(BloodTypeErrorState(message: 'Erro ao buscar os dados!')),
+        (sucess) {
+      sucess.sort(
+        (a, b) => a.name.compareTo(b.name),
+      );
+      emit(BloodTypeLoadedState(bloodTypeList: sucess));
+    });
   }
 
   Future<void> _onBloodTypeRemove(
