@@ -27,8 +27,22 @@ class BloodTypeBlocProvider extends StatelessWidget {
   }
 }
 
-class BloodTypeListPage extends StatelessWidget {
+class BloodTypeListPage extends StatefulWidget {
   const BloodTypeListPage({super.key});
+
+  @override
+  State<BloodTypeListPage> createState() => _BloodTypeListPageState();
+}
+
+class _BloodTypeListPageState extends State<BloodTypeListPage> {
+  late final BloodTypeBloc _bloc;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _bloc = Modular.get<BloodTypeBloc>();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -36,33 +50,39 @@ class BloodTypeListPage extends StatelessWidget {
       appBarTitle: 'Tipos Sanguíneos',
       centerTitle: false,
       // appBarTitle: 'Tipos sanguineos',
-      body: BlocBuilder<BloodTypeBloc, BloodTypeState>(
-        builder: (context, state) {
-          if (state is BloodTypeLoadingState) {
-            return const LoadingStateWidget();
-          } else if (state is BloodTypeLoadedState) {
-            return Container(
-              padding: const EdgeInsets.symmetric(vertical: 10),
-              child: ListLoadindWidget(
-                itemCount: state.bloodTypeList.length,
-                itemBuilder: (context, index) {
-                  return ListTileBloodType(
-                    bloodTypeEntity: state.bloodTypeList[index],
-                    onTapDesative: () {
-                      print('Desativar');
-                    },
-                    onTapEdit: () {
-                      print('Editar');
-                    },
-                  );
-                },
-              ),
-            );
-          } else if (state is BloodTypeErrorState) {
-            return ErrorStateWidget(message: state.message);
-          }
-          return const SizedBox();
+      body: RefreshIndicator(
+        onRefresh: () async {
+          _bloc.add(LoadBloodTypeEvent());
         },
+        child: BlocBuilder<BloodTypeBloc, BloodTypeState>(
+          builder: (context, state) {
+            if (state is BloodTypeLoadingState) {
+              return const LoadingStateWidget();
+            } else if (state is BloodTypeLoadedState) {
+              return Container(
+                padding: const EdgeInsets.symmetric(vertical: 10),
+                child: ListLoadindWidget(
+                  itemCount: state.bloodTypeList.length,
+                  itemBuilder: (context, index) {
+                    return ListTileBloodType(
+                      bloodTypeEntity: state.bloodTypeList[index],
+                      onTapDesative: () {
+                        _bloc.add(RemoveBloodTypeEvent(
+                            bloodTypeEntity: state.bloodTypeList[index]));
+                      },
+                      onTapEdit: () {
+                        print('Editar');
+                      },
+                    );
+                  },
+                ),
+              );
+            } else if (state is BloodTypeErrorState) {
+              return ErrorStateWidget(message: state.message);
+            }
+            return const SizedBox();
+          },
+        ),
       ),
     );
   }

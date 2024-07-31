@@ -40,15 +40,15 @@ class BloodTypeBloc extends Bloc<BloodTypeEvent, BloodTypeState> {
   Future<void> _onBloodTypeRemove(
       RemoveBloodTypeEvent event, Emitter<BloodTypeState> emit) async {
     emit(BloodTypeLoadingState());
-    final result = await usecase.call(
-      GetAllParams<BloodTypeModel>(
-          table: TableName.bloodTypeTable, fromMap: BloodTypeModel.fromMap),
+    final result = await usecase.remove(
+      RemoveParams<BloodTypeModel>(
+          table: TableName.bloodTypeTable, id: event.bloodTypeEntity.id),
     );
     result.fold(
       (failure) =>
           emit(BloodTypeErrorState(message: 'Erro ao buscar os dados!')),
-      (sucess) => emit(
-        BloodTypeLoadedState(bloodTypeList: sucess),
+      (sucess) => add(
+        LoadBloodTypeEvent(),
       ),
     );
   }

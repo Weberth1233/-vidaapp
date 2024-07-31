@@ -18,6 +18,12 @@ class BloodTypeDatasourcesImpl extends BloodTypeDatasources {
     return super.get(path, fromMap);
   }
 
+  @override
+  Future<bool> delete(String path, int id) {
+    // TODO: implement delete
+    return super.delete(path, id);
+  }
+
   // @override
   // void imprimir() {
   //   // TODO: implement imprimir

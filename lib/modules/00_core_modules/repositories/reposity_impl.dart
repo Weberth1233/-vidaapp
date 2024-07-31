@@ -17,9 +17,15 @@ class Reposity<T, R extends T> implements IRepository<T, R> {
   }
 
   @override
-  Future<Either<Failure, bool>> delete(T entity) {
-    // TODO: implement delete
-    throw UnimplementedError();
+  Future<Either<Failure, bool>> delete(String path, int id) async {
+    try {
+      final result = await dataSourcesImpl.delete(path, id);
+      return right(result);
+    } on ServerFailure catch (_) {
+      return left(ServerFailure());
+    } catch (e) {
+      return left(GeneralFailure());
+    }
   }
 
   @override

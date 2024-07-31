@@ -1,8 +1,7 @@
 import 'package:supabase_flutter/supabase_flutter.dart';
-import 'package:vidaapp/modules/00_core_modules/infra/base_model.dart';
 import 'idata_sources.dart';
 
-class DataSourcesImpl<T extends BaseModel> implements IDatasource<T> {
+class DataSourcesImpl<T> implements IDatasource<T> {
   final SupabaseClient client;
 
   DataSourcesImpl({required this.client});
@@ -26,9 +25,15 @@ class DataSourcesImpl<T extends BaseModel> implements IDatasource<T> {
   }
 
   @override
-  Future<void> delete(String path) {
-    // TODO: implement delete
-    throw UnimplementedError();
+  Future<bool> delete(String path, int id) async {
+    bool result = false;
+    try {
+      await client.from(path).delete().eq('id', id);
+      result = true;
+    } catch (e) {
+      throw Exception('Failed to fetch $path $e');
+    }
+    return result;
   }
 
   @override

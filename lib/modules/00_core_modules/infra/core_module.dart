@@ -8,6 +8,7 @@ class CoreModule extends Module {
   void exportedBinds(Injector i) {
     //Injetando o supabaseconfig para inicia-ló ao chamar esse modulo
     i.addSingleton<SupabaseClient>(createSupabaseClient);
+    
     //Injetando datasources com o supabase - SupabaseClient
     // i.addSingleton<IDatasource<T>>(
     //   () => DataSourcesImpl<T>(

@@ -8,5 +8,5 @@ abstract class IRepository<T, R> {
   Future<Either<Failure, T>> getById(String id);
   Future<Either<Failure, bool>> add(T entity);
   Future<Either<Failure, bool>> update(T entity);
-  Future<Either<Failure, bool>> delete(T entity);
+  Future<Either<Failure, bool>> delete(String path, int id);
 }
