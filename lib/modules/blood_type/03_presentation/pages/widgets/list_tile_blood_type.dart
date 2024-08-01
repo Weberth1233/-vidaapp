@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:vidaapp/modules/blood_type/03_presentation/controllers/options_pop_controller.dart';
-
 import '../../../02_domain/entities/blood_type_entity.dart';
 
 // This is the type used by the popup menu below.

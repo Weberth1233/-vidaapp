@@ -19,25 +19,53 @@ class PostCardIcons extends StatelessWidget {
         Row(
           children: [
             IconsPost(
-              icon: Icons.heart_broken,
-              text: 'Curtir',
+              icon: Icons.location_on_outlined,
+              text: 'Localização',
               onPressed: onPressedLike,
             ),
             const SizedBox(
               width: 25,
             ),
             IconsPost(
-              icon: Icons.message_outlined,
-              text: 'Comentar',
-              onPressed: onPressedComment,
+              icon: Icons.ios_share,
+              text: 'Compartilhar',
+              onPressed: onPressedMark,
             ),
+            // IconsPost(
+            //   icon: Icons.message_outlined,
+            //   text: 'Comentar',
+            //   onPressed: onPressedComment,
+            // ),
           ],
         ),
-        IconsPost(
-          icon: Icons.people_outline,
-          text: 'Marcar amigos',
-          onPressed: onPressedMark,
-        ),
+        // Row(
+        //   children: [
+        //     IconsPost(
+        //       icon: Icons.heart_broken,
+        //       text: 'Curtir',
+        //       onPressed: onPressedLike,
+        //     ),
+        //     const SizedBox(
+        //       width: 25,
+        //     ),
+        //     IconsPost(
+        //       icon: Icons.message_outlined,
+        //       text: 'Comentar',
+        //       onPressed: onPressedComment,
+        //     ),
+        //   ],
+        // ),
+
+        // IconsPost(
+        //   icon: Icons.people_outline,
+        //   text: 'Marcar amigos',
+        //   onPressed: onPressedMark,
+        // ),
+        // IconsPost(
+        //   icon: Icons.ios_share,
+        //   text: 'Compartilhar',
+        //   onPressed: onPressedMark,
+        // ),
       ],
     );
   }

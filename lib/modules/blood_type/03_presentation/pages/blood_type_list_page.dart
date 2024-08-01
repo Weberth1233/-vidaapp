@@ -11,22 +11,6 @@ import 'package:vidaapp/modules/blood_type/03_presentation/bloc/blood_type_state
 
 import 'widgets/list_tile_blood_type.dart';
 
-class BloodTypeBlocProvider extends StatelessWidget {
-  const BloodTypeBlocProvider({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    final bloodTypeBloc = Modular.get<BloodTypeBloc>();
-
-    return BlocProvider<BloodTypeBloc>.value(
-      value: bloodTypeBloc..add(LoadBloodTypeEvent()),
-      child: const BloodTypeListPage(),
-    );
-  }
-}
-
 class BloodTypeListPage extends StatefulWidget {
   const BloodTypeListPage({super.key});
 
@@ -42,6 +26,7 @@ class _BloodTypeListPageState extends State<BloodTypeListPage> {
     // TODO: implement initState
     super.initState();
     _bloc = Modular.get<BloodTypeBloc>();
+    _bloc.add(LoadBloodTypeEvent());
   }
 
   @override
@@ -55,6 +40,7 @@ class _BloodTypeListPageState extends State<BloodTypeListPage> {
           _bloc.add(LoadBloodTypeEvent());
         },
         child: BlocBuilder<BloodTypeBloc, BloodTypeState>(
+          bloc: _bloc,
           builder: (context, state) {
             if (state is BloodTypeLoadingState) {
               return const LoadingStateWidget();

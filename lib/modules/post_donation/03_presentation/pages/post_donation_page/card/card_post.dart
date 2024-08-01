@@ -12,6 +12,7 @@ class CardPost extends StatelessWidget {
   final bool visibilityIconButton;
 
   final ImageProvider<Object> imageContent;
+
   final String content;
 
   final void Function()? onPressedLike;

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 import '../../../../00_core_modules/designer_system/profile_photo_widget.dart';
 
@@ -27,30 +28,37 @@ class CardHeader extends StatelessWidget {
       children: [
         Expanded(
           child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               ProfilePhotoWidget(
-                // image: AssetImage('assets/images-mock/Ellipse.png'),
                 image: image,
               ),
               const SizedBox(
                 width: 8,
               ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    title,
-                    style: theme.textTheme.bodyLarge!.copyWith(
-                        color: isColorRedTitle
-                            ? theme.colorScheme.secondary
-                            : theme.colorScheme.onPrimary),
-                  ),
-                  Text(
-                    subTitle,
-                    style: theme.textTheme.bodySmall!
-                        .copyWith(color: theme.colorScheme.outline),
-                  ),
-                ],
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      title,
+                      overflow: TextOverflow.ellipsis,
+                      maxLines: 1,
+                      softWrap: true,
+                      style: theme.textTheme.bodyLarge!.copyWith(
+                          fontWeight: FontWeight.w500,
+                          color: isColorRedTitle
+                              ? theme.colorScheme.secondary
+                              : theme.colorScheme.onPrimary),
+                    ),
+                    Text(
+                      subTitle,
+                      style: theme.textTheme.bodySmall!
+                          .copyWith(color: theme.colorScheme.outline),
+                    ),
+                  ],
+                ),
               ),
               // IconButton(onPressed: () {}, icon: Icon(Icons.more_vert_outlined))
             ],
